@@ -63,13 +63,14 @@ function PeopleSearch() {
           countryRes,
           industryRes,
         ] = await Promise.all([
-          axios.get("http://localhost:3003/getemail", {
+          axios.get("http://localhost:3000/getemail", {
             params: { company: filter.company },
           }),
-          axios.get("http://localhost:3003/email-status"),
-          axios.get("http://localhost:3003/not-sent-reasons"),
-          axios.get("http://localhost:3003/unique-companies"),
-          axios.get("http://localhost:3003/getmail", {
+          axios.get("http://localhost:3000/email-status"),
+          axios.get("http://localhost:3000/not-sent-reasons"),
+          axios.get("http://localhost:3000/unique-companies"),
+          axios.get("http://localhost:3000/getmail",
+             {
             params: { industry: filter.industry },
           }),
         ]);
@@ -102,7 +103,7 @@ function PeopleSearch() {
   const fetchData = async () => {
     try {
       const { company, Listname, ...restFilters } = filter;
-      const response = await axios.get("http://localhost:3003/getemail", {
+      const response = await axios.get("http://localhost:3000/getemail", {
         params: {
           company: company,
           Listname: Listname,
@@ -266,9 +267,9 @@ function PeopleSearch() {
                 className="px-4 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600"
                 onClick={handleSendClick}
               >
-                Send
+                Send Email
               </button>
-              <button className="px-4 py-2 ml-2 bg-gray-200 text-gray-700 rounded-md font-semibold hover:bg-gray-300">
+              {/* <button className="px-4 py-2 ml-2 bg-gray-200 text-gray-700 rounded-md font-semibold hover:bg-gray-300">
                 Export
               </button>
               <button className="px-4 py-2 ml-2 bg-red-500 text-white rounded-md font-semibold hover:bg-red-600">
@@ -276,7 +277,7 @@ function PeopleSearch() {
               </button>
               <button className="px-4 py-2 ml-2 bg-green-500 text-white rounded-md font-semibold hover:bg-green-600">
                 Add to existing list
-              </button>
+              </button> */}
             </div>
             <div className="bg-white rounded-md border border-gray-300 p-4">
               {emailList.length === 0 ? (
