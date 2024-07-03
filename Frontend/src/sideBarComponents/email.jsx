@@ -34,7 +34,6 @@ function Email() {
                       Templates
                     </button>
                   </li>
-                 
                 </ul>
               </div>
               <div>

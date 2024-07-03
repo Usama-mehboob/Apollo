@@ -10,7 +10,7 @@ function MainContent() {
   ];
   return (
     <div
-      className="w-4/5 p-4 overflow-auto bg-grey-500"
+      className="w-11/12 p-4 overflow-auto bg-grey-500"
       style={{ backgroundColor: "#F3F4F6" }}
     >
       <div className="h-14 bg-white flex items-center">

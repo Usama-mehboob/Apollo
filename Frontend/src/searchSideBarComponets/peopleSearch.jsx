@@ -35,6 +35,8 @@ function PeopleSearch() {
     emailStatus: "",
     notSentReason: "",
     company: "",
+    location: "",
+    buyingIntent: "",
   });
   const [filterOptions, setFilterOptions] = useState({
     lists: [],
@@ -43,6 +45,8 @@ function PeopleSearch() {
     companies: [],
     countries: [],
     industries: [],
+    locations: [],
+    buyingIntents: [],
   });
   const [isPopupOpen, setIsPopupOpen] = useState(false); // Manage popup state
 
@@ -62,6 +66,8 @@ function PeopleSearch() {
           companiesRes,
           countryRes,
           industryRes,
+          locationRes,
+          buyingIntentRes,
         ] = await Promise.all([
           axios.get("http://localhost:3000/getemail", {
             params: { company: filter.company },
@@ -69,10 +75,11 @@ function PeopleSearch() {
           axios.get("http://localhost:3000/email-status"),
           axios.get("http://localhost:3000/not-sent-reasons"),
           axios.get("http://localhost:3000/unique-companies"),
-          axios.get("http://localhost:3000/getmail",
-             {
+          axios.get("http://localhost:3000/getmail", {
             params: { industry: filter.industry },
           }),
+          axios.get("http://localhost:3000/locations"),
+          axios.get("http://localhost:3000/buying-intents"),
         ]);
 
         setFilterOptions({
@@ -90,6 +97,14 @@ function PeopleSearch() {
           industries: industryRes.data.map((industry) => ({
             value: industry,
             label: industry,
+          })),
+          locations: locationRes.data.map((location) => ({
+            value: location,
+            label: location,
+          })),
+          buyingIntents: buyingIntentRes.data.map((intent) => ({
+            value: intent,
+            label: intent,
           })),
         });
       } catch (error) {
@@ -229,6 +244,36 @@ function PeopleSearch() {
         />
       ),
       filterKey: "company",
+    },
+    {
+      title: "Location",
+      icon: <MdBusiness className="mr-2" />,
+      content: (
+        <Select
+          options={filterOptions.locations}
+          value={filter.location}
+          onChange={(selectedOption) =>
+            handleFilterChange("location", selectedOption?.value || "")
+          }
+          placeholder="Select location..."
+        />
+      ),
+      filterKey: "location",
+    },
+    {
+      title: "Buying Intent",
+      icon: <MdBusiness className="mr-2" />,
+      content: (
+        <Select
+          options={filterOptions.buyingIntents}
+          value={filter.buyingIntent}
+          onChange={(selectedOption) =>
+            handleFilterChange("buyingIntent", selectedOption?.value || "")
+          }
+          placeholder="Select buying intent..."
+        />
+      ),
+      filterKey: "buyingIntent",
     },
   ];
 
