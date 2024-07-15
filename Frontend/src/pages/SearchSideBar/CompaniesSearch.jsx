@@ -413,7 +413,7 @@ function CompaniesSearch() {
   return (
     <>
       <div className= {`flex ${isCollapsed? "-ml-44": "ml-2"}`}>
-        <div className="w-1/4 bg-white shadow-md p-4 mx- my-4 rounded overflow-y-auto max-h-screen">
+        <div className="w-1/4 bg-white shadow-md p-4 mx- my-4 rounded overflow-y-auto ">
           <div className="flex  mb-4">
             <button
               className="px-4 py-2 text-gray-600 rounded-md font-semibold hover:bg-blue-200"
@@ -479,9 +479,9 @@ function CompaniesSearch() {
             ))}
           </div>
 
-          <div className="py-8">
+          <div className="py-5">
             <button
-              className="px-11 mx-9  py-2 bg-green-200 text-white rounded-md font-semibold hover:bg-green-600"
+              className="px-9 mx-9  py-2 bg-green-200 text-white rounded-md font-semibold hover:bg-green-600"
               onClick={handleSaveClick}
             >
               Save Company
@@ -489,45 +489,14 @@ function CompaniesSearch() {
           </div>
         </div>
 
-        {/* <div className="flex-1 p-4">
-          <div className="flex justify-end mb-4">
-            <button
-              className="px-4 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600"
-              onClick={handleSendClick}
-            >
-              Send Email
-            </button>
-          </div>
-          <div className="bg-white rounded-md border border-gray-300 p-4">
-            {emailList.length === 0 ? (
-              <div className="text-center text-gray-500">No emails found.</div>
-            ) : (
-              <ul className="divide-y divide-gray-200">
-                {emailList.map((email, index) => (
-                  <li key={email._id} className="py-2 flex items-center">
-                    <input
-                      key={email._id}
-                      type="checkbox"
-                      className="mr-2"
-                      checked={selectedEmails.includes(email._id)}
-                      onChange={() => toggleSelectEmail(email._id)}
-                    />
-                    <div className="flex-1">
-                      {email.Listname}: {email.email}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div> */}
+        
 
         <div className="flex-1 p-4">
           <div className="bg-white">
             <div className="flex items-center mb-4">
               <div className="flex ">
                 <div className="py-2 px-2">
-                  <button className="px-4 py-2 text-white bg-gray-600 rounded-md flex">
+                  <button className="px-4 py-2 text-white bg-gray-300 rounded-md flex">
                     <MdFilterListOff />
                     <span className="px-2"> Hide Filters</span>
                   </button>

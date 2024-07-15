@@ -4,14 +4,7 @@ function TotalSearchEmail() {
   return (
     <>
 <div>
-        {/* <div className="flex">
-          <div className=" ml-auto items-center    space-x-4">
-            <select className="border border-gray-300 rounded-md">
-              <option>im.uxama85@gmail.com</option>
-            </select>
-          </div>
-          <div>0 / 50 Daily emails sent</div>
-        </div> */}
+      
         <div
           className="flex items-center justify-center h-64 border border-dashed bg-white border-gray-300 rounded-md"
           style={{ height: "40rem" }}
