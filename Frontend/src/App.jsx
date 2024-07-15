@@ -1,16 +1,13 @@
-import React from 'react';
-import './index.css';
-import Index from './components';
-import approuter from "./router/appRoute"
-
-const App = () => {
+import React from "react"
+import AppRoute from "./routes/AppRoute"
+export default function App() {
   return (
-    <div className="flex h-screen">
-    
-    <Index/>
-    {/* <approuter/> */}
+    <>
+    <div className="bg-gray-50  min-h-screen overflow-x-hidden">
+    <AppRoute />
     </div>
-  );
+    
+    </>
+    
+  )
 }
-
-export default App;
